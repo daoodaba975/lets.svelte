@@ -1,30 +1,79 @@
 <script>
-	export let name;
 </script>
 
-<main>
-	<h1>Hello my name is {name}!</h1>
-	<p>I'm currently learning Svelte, visit my <a href="https://daooda.dev">website</a> to see what i'm doing.</p>
-</main>
+<body>
+	<div>
+		<ul>
+			<li><a href="#a"><span title="Home">Home</span></a></li>
+			<li><a href="#b"><span title="About">About</span></a></li>
+			<li><a href="#c"><span title="Service">Service</span></a></li>
+			<li><a href="#d"><span title="Contact">Contact</span></a></li>
+		</ul>
+	</div>
+</body>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 250px;
-		margin: 0 auto;
+	body{
+		padding: 0;
+		margin: 0;
+		background-color: #262626;
 	}
-	a {
-		text-decoration: underline;
+	ul{
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		background-color: #fff;
 	}
-	h1 {
-		color: #ff3e00;
-		font-size: 4em;
-		font-weight: 100;
+	ul li{
+		display: inline-block;
+		transform-style: preserve-3d;
 	}
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+	ul li a{
+		color: #262626;
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 16px;
+		text-decoration: none;
+		font-weight: bold;
+		display: block;
+		position: relative;
 	}
+	ul li a span{
+		display: block;
+		padding: 15px 20px
+	}
+	ul li a span:before{
+		content: attr(title);
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: #f30000;
+		color:  #fff;
+		padding: 15px 20px;
+		transition: .3s;
+		transform: rotateX(90deg) translateY(40px);
+		transform-origin: bottom;
+	}
+	ul li a span:hover:before{
+		transform: rotateX(0deg) translateY(0px);
+	}
+	ul li a span:after{
+		content: attr(title);
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: #fff;
+		color:  #262626;
+		padding: 15px 20px;
+		transition: .3s;
+		transform: rotateX(0deg) translateY(0px);
+		transform-origin: top;
+	}
+	ul li a span:hover:after{
+		transform: rotateX(90deg) translateY(-10px);
+	}
+
 </style>

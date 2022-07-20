@@ -1,79 +1,17 @@
 <script>
+	let count = 0;
 </script>
 
 <body>
 	<div>
-		<ul>
-			<li><a href="#a"><span title="Home">Home</span></a></li>
-			<li><a href="#b"><span title="About">About</span></a></li>
-			<li><a href="#c"><span title="Service">Service</span></a></li>
-			<li><a href="#d"><span title="Contact">Contact</span></a></li>
-		</ul>
+		<p>Counter on click</p>
+		<input type=number bind:value={count}>
+		<button on:click="{() => count += 1}">count</button>
 	</div>
 </body>
 
 <style>
-	body{
-		padding: 0;
-		margin: 0;
-		background-color: #262626;
+	div {
+		margin: 50px;
 	}
-	ul{
-		margin: 0;
-		padding: 0;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%,-50%);
-		background-color: #fff;
-	}
-	ul li{
-		display: inline-block;
-		transform-style: preserve-3d;
-	}
-	ul li a{
-		color: #262626;
-		font-family: arial;
-		text-transform: uppercase;
-		font-size: 16px;
-		text-decoration: none;
-		font-weight: bold;
-		display: block;
-		position: relative;
-	}
-	ul li a span{
-		display: block;
-		padding: 15px 20px
-	}
-	ul li a span:before{
-		content: attr(title);
-		position: absolute;
-		top: 0;
-		left: 0;
-		background-color: #f30000;
-		color:  #fff;
-		padding: 15px 20px;
-		transition: .3s;
-		transform: rotateX(90deg) translateY(40px);
-		transform-origin: bottom;
-	}
-	ul li a span:hover:before{
-		transform: rotateX(0deg) translateY(0px);
-	}
-	ul li a span:after{
-		content: attr(title);
-		position: absolute;
-		top: 0;
-		left: 0;
-		background-color: #fff;
-		color:  #262626;
-		padding: 15px 20px;
-		transition: .3s;
-		transform: rotateX(0deg) translateY(0px);
-		transform-origin: top;
-	}
-	ul li a span:hover:after{
-		transform: rotateX(90deg) translateY(-10px);
-	}
-
 </style>
